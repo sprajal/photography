@@ -76,7 +76,6 @@ if ( ! function_exists('colabs_custom_post_type') ) {
 						'query_var' => true,
 						'rewrite' => array( 'slug' => 'photograph-categories' ),
 				));
-		flush_rewrite_rules();
 	}
 
 }
@@ -183,13 +182,12 @@ function photograph_type_filter_list() {
 }
 add_filter( 'parse_query','perform_filtering' );
 
-function perform_filtering( $query )
- {
-    $qv = &$query->query_vars;
-    if (( $qv['photograph-categories'] ) && is_numeric( $qv['photograph-categories'] ) ) {
-      $term = get_term_by( 'id', $qv['photograph-categories'], 'photograph-categories' ); 
-			$qv['photograph-categories'] = $term->slug;
-		}
+function perform_filtering( $query ) {
+	$qv = &$query->query_vars;
 
+	if ( isset($qv['photograph-categories']) && ( $qv['photograph-categories'] ) && is_numeric( $qv['photograph-categories'] ) ) {
+		$term = get_term_by( 'id', $qv['photograph-categories'], 'photograph-categories' ); 
+		$qv['photograph-categories'] = $term->slug;
+	}
 }
 ?>

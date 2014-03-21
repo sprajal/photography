@@ -495,16 +495,7 @@ $options[] = array( "name" => __("Destination Email Address","colabsthemes"),
 					"id" => $shortname."_contactform_email",
 					"std" => "",
 					"type" => "text"); 
-// Footer Settings
-$options[] = array( "name" => __("Footer Settings","colabsthemes"),
-                    "type" => "heading",
-                    "icon" => "general");
- 
-$options[] = array( "name" => __("Custom Footer Credit","colabsthemes"),
-                    "desc" => __("You can type a custom credit that displayed at footer area, also you can type any HTML code on this field.","colabsthemes"),
-                    "id" => $shortname."_credit_footer",
-                    "std" => "",
-                    "type" => "textarea");					
+					
 // Add extra options through function
 if ( function_exists("colabs_options_add") )
 	$options = colabs_options_add($options);

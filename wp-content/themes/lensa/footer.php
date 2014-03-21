@@ -9,14 +9,7 @@
 <footer class="footer-section container">
   <div class="row">
     <?php colabs_social_net("social-links") ?>
-    <div class="copyrights"><?php if (get_option('colabs_credit_footer')!=''){ ?>
-    <?php
-        $test = get_option('colabs_credit_footer');
-        echo $test;
-    ?>
-    <?php }else{ ?>
-    <?php colabs_credit(); ?>
-    <?php } ?></div>
+    <div class="copyrights"><?php colabs_credit(); ?></div>
   </div>
 </footer><!-- .footer-section -->
 
