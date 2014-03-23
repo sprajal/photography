@@ -113,3 +113,11 @@ if(is_admin()){
 		update_option('jigoshop_shop_small_h','200');
 	}
 }
+
+	function exclude_category($query) {
+	if ( $query->is_home() ) {
+	$query->set('cat', '-5');
+	}
+	return $query;
+	}
+	add_filter('pre_get_posts', 'exclude_category');
